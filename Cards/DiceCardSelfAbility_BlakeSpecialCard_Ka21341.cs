@@ -5,8 +5,6 @@ namespace ModJam_Ka21341.Cards
 {
     public class DiceCardSelfAbility_BlakeSpecialCard_Ka21341 : DiceCardSelfAbilityBase
     {
-        public static string Desc = "Purge all bleed from an ally, gain 1 Strength and Endurance this scene.";
-
         public override bool IsValidTarget(BattleUnitModel unit, BattleDiceCardModel self, BattleUnitModel targetUnit)
         {
             return unit != targetUnit && targetUnit.faction == unit.faction && unit.bufListDetail.GetActivatedBufList()

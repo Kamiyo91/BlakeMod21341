@@ -8,6 +8,7 @@ namespace ModJam_Ka21341.BLL
     {
         public const string PackageId = "ModJamBlazeKa21341";
         public static string Path;
+        public static string Language = GlobalGameManager.Instance.CurrentOption.language;
         public static Dictionary<string, Sprite> ArtWorks = new Dictionary<string, Sprite>();
         public static List<LorId> PersonalCardList = new List<LorId>();
         public static List<LorId> EgoPersonalCardList = new List<LorId>();

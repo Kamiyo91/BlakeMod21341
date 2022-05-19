@@ -1,7 +1,11 @@
-﻿namespace ModJam_Ka21341.Buffs
+﻿using UnityEngine;
+
+namespace ModJam_Ka21341.Buffs
 {
     public class BattleUnitBuf_Bloodlust_Ka21341 : BattleUnitBuf
     {
+        private GameObject aura;
+
         public BattleUnitBuf_Bloodlust_Ka21341()
         {
             stack = 0;
@@ -11,9 +15,18 @@
         protected override string keywordId => "BloodLustJam_Ka21341";
         protected override string keywordIconId => "BloodLustJamIcon_Ka21341";
 
+        public override void Init(BattleUnitModel owner)
+        {
+            base.Init(owner);
+            var creatureEffect =
+                SingletonBehavior<DiceEffectManager>.Instance.CreateNewFXCreatureEffect(
+                    "6_G/FX_IllusionCard_6_G_BloodAura", 1f, owner.view, owner.view);
+            aura = creatureEffect != null ? creatureEffect.gameObject : null;
+        }
+
         public override void OnRoundEnd()
         {
-            _owner.bufListDetail.RemoveBuf(this);
+            Destroy();
         }
 
         public override void OnRoundStart()
@@ -35,6 +48,25 @@
         public override void BeforeRollDice(BattleDiceBehavior behavior)
         {
             behavior.ApplyDiceStatBonus(new DiceStatBonus { power = 1 });
+        }
+
+        public override void Destroy()
+        {
+            base.Destroy();
+            DestroyAura();
+        }
+
+        private void DestroyAura()
+        {
+            if (aura == null) return;
+            Object.Destroy(aura);
+            aura = null;
+        }
+
+        public override void OnDie()
+        {
+            base.OnDie();
+            Destroy();
         }
     }
 }

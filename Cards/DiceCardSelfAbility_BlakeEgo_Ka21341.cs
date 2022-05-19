@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using ModJam_Ka21341.Buffs;
+﻿using ModJam_Ka21341.Buffs;
 
 namespace ModJam_Ka21341.Cards
 {

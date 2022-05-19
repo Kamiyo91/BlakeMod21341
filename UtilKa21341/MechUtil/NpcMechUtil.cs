@@ -43,6 +43,7 @@ namespace ModJam_Ka21341.UtilKa21341.MechUtil
             _model.Owner.breakDetail.nextTurnBreak = false;
             _model.Owner.bufListDetail.AddBuf(new BattleUnitBuf_ImmortalUntilRoundEnd_Ka21341());
         }
+
         public void CheckPhase()
         {
             if (_model.Owner.hp > _model.MechHp &&

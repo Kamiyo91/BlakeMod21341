@@ -18,7 +18,7 @@ namespace ModJam_Ka21341.Harmony
             UnitUtil.ChangeCardItem(ItemXmlDataList.instance, ModParameters.PackageId);
             UnitUtil.ChangePassiveItem(ModParameters.PackageId);
             SkinUtil.PreLoadBufIcons();
-            LocalizeUtil.AddLocalize();
+            LocalizeUtil.AddLocalize(ModParameters.PackageId, ModParameters.Path);
         }
 
         private static void InitParameters()
